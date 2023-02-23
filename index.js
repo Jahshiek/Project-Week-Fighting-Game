@@ -108,9 +108,10 @@ function animatieSprites() {
   }
 
   //Enemy Movement
-  if (keys.ArrowLeft.pressed && lastKey === "ArrowLeft") {
+//   console.log(keys.ArrowLeft.pressed,enemy.lastKey)
+  if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -1;
-  } else if (keys.ArrowRight.pressed && lastKey === "ArrowRight") {
+  } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
     enemy.velocity.x = 1;
   }
 }
