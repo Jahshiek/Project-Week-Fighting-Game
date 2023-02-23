@@ -99,6 +99,7 @@ function animatieSprites() {
   enemy.moveSprite();
 
   player.velocity.x = 0; // default value player isnt moving
+  enemy.velocity.x = 0;
 
   //Player Movement
   if (keys.a.pressed && lastKey === "a") {
