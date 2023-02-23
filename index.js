@@ -9,7 +9,7 @@ const ctx = canvasElement.getContext("2d"); //2d game
 
 // size of screen
 canvasElement.width = 1024;
-canvasElement.height = 576; //dont use . style
+canvasElement.height = 540; //dont use . style
 
 ctx.fillRect(0, 0, 1024, 576); //4arguments x, y, width, height fills a rectangle
 
@@ -99,7 +99,7 @@ function animatieSprites() {
   enemy.moveSprite();
 
   player.velocity.x = 0; // default value player isnt moving
-  enemy.velocity.x = 0;
+  enemy.velocity.x = 0; // default value enemy isnt moving
 
   //Player Movement
   if (keys.a.pressed && lastKey === "a") {
@@ -109,7 +109,6 @@ function animatieSprites() {
   }
 
   //Enemy Movement
-//   console.log(keys.ArrowLeft.pressed,enemy.lastKey)
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -1;
   } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
