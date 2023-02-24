@@ -183,7 +183,7 @@ function animatieSprites() {
     player.isAttacking = false;
     // console.log("attack");
     enemy.health -= 10;
-    document.querySelector('#enemyHealth').style.width = enemy.health + '%';
+    document.querySelector("#enemyHealth").style.width = enemy.health + "%";
   }
 
   if (
@@ -196,7 +196,7 @@ function animatieSprites() {
     enemy.isAttacking = false;
     // console.log("enemy attack");
     player.health -= 10;
-    document.querySelector('#playerHealth').style.width = player.health + '%';
+    document.querySelector("#playerHealth").style.width = player.health + "%";
   }
 }
 animatieSprites();
