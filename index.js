@@ -19,6 +19,8 @@ ctx.fillRect(0, 0, 1024, 576); //4arguments x, y, width, height fills a rectangl
 
 const gravity = 0.7; // downward acceleration to objects
 
+const resultTextElement = document.querySelector('#displayResult');
+
 class Sprite {
   constructor({ position, velocity, color = "blue", offset }) {
     /*position independent of one another. wrapping in an object makes u pass through one argument instead of two cat pass through velocity first*/
@@ -148,19 +150,33 @@ function rectanglarCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-// ///TIMER
-// let timer = 15;
-// function decrementTimer(){
-//   if (timer > 0) {
-//     setTimeout(decrementTimer, 1000)
-//     timer--
-//     document.querySelector('#timer').innerText = timer
-//   }
-//   if (player.health === enemy.health){
-//       document.querySelector('')
-//   }
-// }
-// decrementTimer()
+// 
+function determineWinner({ player, enemy, timerId }) {
+    clearTimeout(timerId);
+    resultTextElement.style.display = 'flex';
+    if (player.health === enemy.health) {
+      resultTextElement.innerText = 'Tie';
+    } else if (player.health > enemy.health) {
+      resultTextElement.innerText = 'Player 1 Wins';
+    } else if (player.health < enemy.health) {
+      resultTextElement.innerText = 'Player 2 Wins';
+    }
+}
+
+///TIMER
+let timer = 60;
+let timerId;
+function decrementTimer(){
+  if (timer > 0) {
+    timerId = setTimeout(decrementTimer, 1000);
+    timer--;
+    document.querySelector('#timer').innerText = timer;
+  }
+  if (timer === 0) {
+    determineWinner({ player, enemy, timerId });
+  }
+}
+decrementTimer()
 //<div style = "position: absolute; color: white; align-items: center; justify-content: center; top: 0; right: 0;  left: 0; bottom: 0; display: none;">TIE GAME</div> add this part after
 
 //moving objects velocity determines direction inside an animation loopand gravity
@@ -213,6 +229,11 @@ function animatieSprites() {
     // console.log("enemy attack");
     player.health -= 10;
     document.querySelector("#playerHealth").style.width = player.health + "%";
+  }
+
+  //end game based on health
+  if (player.health <= 0 || enemy.health <= 0) {
+    determineWinner({ player, enemy, timerId });
   }
 }
 animatieSprites();
