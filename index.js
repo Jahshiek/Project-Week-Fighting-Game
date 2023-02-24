@@ -147,6 +147,22 @@ function rectanglarCollision({ rectangle1, rectangle2 }) {
     rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
   );
 }
+
+// ///TIMER
+// let timer = 15;
+// function decrementTimer(){
+//   if (timer > 0) {
+//     setTimeout(decrementTimer, 1000)
+//     timer--
+//     document.querySelector('#timer').innerText = timer
+//   }
+//   if (player.health === enemy.health){
+//       document.querySelector('')
+//   }
+// }
+// decrementTimer()
+//<div style = "position: absolute; color: white; align-items: center; justify-content: center; top: 0; right: 0;  left: 0; bottom: 0; display: none;">TIE GAME</div> add this part after
+
 //moving objects velocity determines direction inside an animation loopand gravity
 function animatieSprites() {
   window.requestAnimationFrame(animatieSprites); //creating an infinite loop
